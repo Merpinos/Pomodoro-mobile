@@ -1,28 +1,48 @@
 {
   "expo": {
-    "name": "pomodoro-mobile",
-    "slug": "pomodoro-mobile",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+    "name": "Deep Track",
+    "slug": "deep-track-slug",
+    "version": "1.1.0",
+    "platforms": [
+      "android"
+    ],
+    "android": {
+
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "VIBRATE",
+        "INTERNET",
+        "WAKE_LOCK"
+      ],
+      "backgroundColor": "#FFFFFF",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.merpinos.deeptrack",
+      "versionCode": 11
     },
     "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+      "bundleIdentifier": "com.merpinos.deeptrack",
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "fetch",
+          "location",
+          "audio"
+        ],
+        "UIBackgroundFetchIntervalMinimum": 60
       }
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FFFFFF"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "95a069f4-bffb-47e5-a612-ca3d3087296e"
+      }
     }
   }
 }

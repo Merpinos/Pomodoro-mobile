@@ -1,20 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { createContext, useState, useMemo } from 'react';
+import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
+import TabNavigator from './navigation/TabNavigator';
+
+export const ThemeContext = createContext();
 
 export default function App() {
+  const [isDark, setIsDark] = useState(false);
+
+  const toggleTheme = () => setIsDark((prev) => !prev);
+
+  const themeData = useMemo(() => ({ isDark, toggleTheme }), [isDark]);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ThemeContext.Provider value={themeData}>
+      <NavigationContainer theme={isDark ? DarkTheme : DefaultTheme}>
+        <TabNavigator />
+      </NavigationContainer>
+    </ThemeContext.Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
